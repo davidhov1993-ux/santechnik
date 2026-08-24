@@ -1,0 +1,35 @@
+{
+  "name": "santekhnic-yerevan",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "check:brand": "node scripts/check-brand-yellow.mjs",
+    "build": "node scripts/generate-sitemap.mjs && npm run check:brand && tsc -b && vite build && node scripts/enhance-static-seo.mjs",
+    "build:pages": "node scripts/generate-sitemap.mjs && npm run check:brand && tsc -b && vite build --base=/santekhnic/ && node scripts/enhance-static-seo.mjs && cp dist/index.html dist/404.html",
+    "preview": "vite preview",
+    "deploy": "npm run build:pages && npx gh-pages -d dist",
+    "dev:pages": "npm run build && npx wrangler pages dev dist",
+    "deploy:pages": "npm run build && npx wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "autoprefixer": "^10.4.27",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.9",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.10",
+    "wrangler": "^4.115.0"
+  }
+}

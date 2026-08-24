@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santekhnic-yerevan.am/sitemap.xml

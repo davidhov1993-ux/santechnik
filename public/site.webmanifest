@@ -1,0 +1,11 @@
+{
+  "name": "Сантехник в Ереване",
+  "short_name": "Сантехник",
+  "description": "Сантехник в Ереване: срочный выезд 24/7, устранение засоров, протечек, монтаж труб и сантехники.",
+  "lang": "ru-AM",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#00aeef",
+  "theme_color": "#00aeef"
+}
