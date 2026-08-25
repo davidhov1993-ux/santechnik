@@ -23,7 +23,7 @@ export function HomePage() {
 
   const heroTitleArtwork = locale === "hy"
     ? {
-        src: "/images/8E4D4DC1-4F58-4364-830A-82C6CDECA8AE.png",
+        src: "/images/ABED11A4-D50A-4449-8F3C-399D085CACC0 13.44.03.png",
         width: 1535,
         height: 1024,
       }

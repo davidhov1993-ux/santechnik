@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 import {
   createCookieConsentChoice,
-  getGoogleConsentMode,
   getSavedCookieConsent,
   initGoogleAnalytics,
   saveCookieConsent,
@@ -28,80 +27,74 @@ const defaultDraft: ConsentDraft = {
 
 const cookieCopy = {
   ru: {
-    eyebrow: "Consent Mode v2",
-    title: "Настройки cookies",
+    eyebrow: "Файлы cookie",
+    title: "Мы используем файлы cookie",
     body:
-      "Мы используем файлы cookie для корректной работы сайта и улучшения сервиса. Google Analytics включается только по вашему выбору.",
+      "Вы можете принять все cookie, настроить их или оставить только необходимые. При отказе от необязательных cookie технические данные посещения могут обрабатываться для работы и безопасности сайта.",
     policyLink: "Политика конфиденциальности",
-    modeLabel: "Режим",
-    advancedMode: "advanced",
-    basicMode: "basic",
     acceptAll: "Принять все",
     rejectAll: "Только необходимые",
     customize: "Настроить",
-    save: "Сохранить выбор",
+    save: "Сохранить",
     close: "Закрыть",
-    modalTitle: "Центр управления cookies",
+    modalTitle: "Настройки cookie",
     modalText:
-      "Вы можете включить аналитику, маркетинговые сигналы и персонализацию отдельно. Настройки сохраняются в браузере и доступны для изменения в любой момент.",
-    alwaysOn: "Всегда включено",
-    enabled: "Включено",
-    disabled: "Выключено",
+      "Выберите, какие cookie можно использовать. Необходимые cookie включены всегда. Cookie-баннер не отключает технические данные запроса: IP-адрес, время, страницу, браузер, устройство и источник перехода.",
+    alwaysOn: "Всегда включены",
+    enabled: "Да",
+    disabled: "Нет",
     categories: {
       necessary: {
         title: "Необходимые",
-        text: "Запоминают ваш выбор cookies, поддерживают язык и базовую безопасность сайта.",
+        text: "Нужны для базовой работы сайта и не отключаются.",
       },
       analytics: {
-        title: "Google Analytics",
-        text: "Помогают понять посещаемость, популярные страницы и качество интерфейса без ручного сбора персональных данных.",
+        title: "Аналитика",
+        text: "Помогают понять, какие страницы посещают чаще и как улучшить сайт.",
       },
       marketing: {
-        title: "Рекламные сигналы",
-        text: "Разрешают `ad_storage`, `ad_user_data` и `ad_personalization` для будущей связки с Google Ads.",
+        title: "Реклама",
+        text: "Нужны для измерения эффективности рекламы, если она подключена.",
       },
       preferences: {
         title: "Персонализация",
-        text: "Разрешает хранение пользовательских предпочтений интерфейса, если такие функции будут добавлены.",
+        text: "Сохраняют выбранные настройки интерфейса.",
       },
     },
   },
   hy: {
-    eyebrow: "Consent Mode v2",
-    title: "Cookie կարգավորումներ",
+    eyebrow: "Cookie ֆայլեր",
+    title: "Cookie ֆայլեր",
     body:
-      "Մենք օգտագործում ենք cookie ֆայլեր կայքի աշխատանքի բարելավման համար: Google Analytics-ը միանում է միայն Ձեր ընտրությամբ:",
+      "Կայքը օգտագործում է cookie ֆայլեր։ Կարող եք ընդունել բոլորը, կարգավորել կամ թողնել միայն պարտադիրները։ Տեխնիկական տվյալները կարող են մշակվել կայքի աշխատանքի և անվտանգության համար:",
     policyLink: "Գաղտնիության քաղաքականություն",
-    modeLabel: "Ռեժիմ",
-    advancedMode: "advanced",
-    basicMode: "basic",
     acceptAll: "Ընդունել բոլորը",
-    rejectAll: "Միայն պարտադիրները",
+    rejectAll: "Միայն պարտադիր",
     customize: "Կարգավորել",
-    save: "Պահպանել ընտրությունը",
+    save: "Պահպանել",
     close: "Փակել",
-    modalTitle: "Cookie կառավարման կենտրոն",
+    modalTitle: "Cookie կարգավորումներ",
     modalText:
-      "Կարող եք առանձին միացնել վերլուծությունը, գովազդային ազդանշանները և անհատականացումը։ Կարգավորումները պահվում են բրաուզերում և կարող են փոխվել ցանկացած պահի։",
+      "Ընտրեք, թե որ cookie ֆայլերը կարող են օգտագործվել։ Պարտադիրները միշտ միացված են։ Cookie բանները չի անջատում հարցման տեխնիկական տվյալները՝ IP հասցե, ժամը, էջը, բրաուզերը, սարքը և անցման աղբյուրը։",
     alwaysOn: "Միշտ միացված է",
-    enabled: "Միացված է",
-    disabled: "Անջատված է",
+    enabled: "Այո",
+    disabled: "Ոչ",
     categories: {
       necessary: {
         title: "Պարտադիր",
-        text: "Հիշում են cookie ընտրությունը, պահպանում լեզուն և կայքի հիմնական անվտանգությունը։",
+        text: "Անհրաժեշտ են կայքի հիմնական աշխատանքի համար և չեն անջատվում։",
       },
       analytics: {
-        title: "Google Analytics",
-        text: "Օգնում են հասկանալ այցելությունները, կարևոր էջերը և ինտերֆեյսի որակը՝ առանց անձնական տվյալների ձեռքով հավաքման։",
+        title: "Վերլուծություն",
+        text: "Օգնում են հասկանալ, թե որ էջերն են ավելի հաճախ այցելվում և ինչպես բարելավել կայքը։",
       },
       marketing: {
-        title: "Գովազդային ազդանշաններ",
-        text: "Թույլ են տալիս `ad_storage`, `ad_user_data` և `ad_personalization`՝ Google Ads-ի հետ ապագա կապի համար։",
+        title: "Գովազդ",
+        text: "Անհրաժեշտ են գովազդի արդյունավետությունը չափելու համար, եթե գովազդը միացված է։",
       },
       preferences: {
         title: "Անհատականացում",
-        text: "Թույլ է տալիս պահել ինտերֆեյսի նախընտրությունները, եթե նման գործառույթներ ավելացվեն։",
+        text: "Պահպանում են ինտերֆեյսի ընտրված կարգավորումները։",
       },
     },
   },
@@ -114,10 +107,7 @@ export function CookieConsent({ locale }: CookieConsentProps) {
   const [savedChoice, setSavedChoice] = useState<CookieConsentChoice | null>(null);
   const [panel, setPanel] = useState<"hidden" | "banner" | "settings">("hidden");
   const [draft, setDraft] = useState<ConsentDraft>(defaultDraft);
-  const consentMode = getGoogleConsentMode();
   const privacyPath = pagePath(locale, "privacy");
-
-  const modeLabel = consentMode === "advanced" ? copy.advancedMode : copy.basicMode;
 
   const categories = useMemo(
     () => [
@@ -199,16 +189,12 @@ export function CookieConsent({ locale }: CookieConsentProps) {
   return (
     <>
       {panel === "banner" ? (
-        <section className="cookie-consent" aria-label={copy.title}>
+        <section className={`cookie-consent cookie-consent--${locale}`} aria-label={copy.title}>
           <div className="cookie-consent__copy">
-            <span className="cookie-consent__eyebrow">{copy.eyebrow}</span>
             <h2>{copy.title}</h2>
             <p>
               {copy.body} <Link to={privacyPath}>{copy.policyLink}</Link>
             </p>
-            <span className="cookie-consent__mode">
-              {copy.modeLabel}: {modeLabel}
-            </span>
           </div>
           <div className="cookie-consent__actions">
             <button className="cookie-consent__button cookie-consent__button--primary" type="button" onClick={() => applyChoice({ analytics: true, marketing: true, preferences: true })}>
@@ -226,7 +212,7 @@ export function CookieConsent({ locale }: CookieConsentProps) {
 
       {panel === "settings" ? (
         <div className="cookie-consent__overlay" role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title">
-          <section className="cookie-consent__panel">
+          <section className={`cookie-consent__panel cookie-consent__panel--${locale}`}>
             <div className="cookie-consent__panel-head">
               <div>
                 <span className="cookie-consent__eyebrow">{copy.eyebrow}</span>

@@ -41,7 +41,7 @@ const requiredHeroAssets = [
   "hero-ru-cutout.png",
   "hero-hy-cutout.png",
   "ABED11A4-D50A-4449-8F3C-399D085CACC0.png",
-  "8E4D4DC1-4F58-4364-830A-82C6CDECA8AE.png",
+  "ABED11A4-D50A-4449-8F3C-399D085CACC0 13.44.03.png",
 ];
 
 const errors = [];
