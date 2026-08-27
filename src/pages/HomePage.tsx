@@ -1,4 +1,4 @@
-import { homeFaqSeoContent, homeSeoContent, hs } from "@/src/content/homeSeo";
+import { homeSeoContent, hs } from "@/src/content/homeSeo";
 import { HyDesktopHome } from "@/src/components/HyDesktopHome";
 import { HyMobileHome } from "@/src/components/HyMobileHome";
 import { RuDesktopHome } from "@/src/components/RuDesktopHome";
@@ -11,12 +11,12 @@ import {
 } from "@/src/content/site";
 import { usePageLocale } from "@/src/hooks/usePageLocale";
 import {
-  createFaqSchema,
   createHomePageSchema,
   createLocalBusinessSchema,
   createOrganizationSchema,
   createWebSiteSchema,
 } from "@/src/lib/seo";
+import { localePath } from "@/src/lib/locale";
 
 export function HomePage() {
   const locale = usePageLocale();
@@ -114,30 +114,33 @@ export function HomePage() {
     : heroMarqueeTopItems;
   const heroDesktopServiceTags = locale === "ru"
     ? [
-        "Прочистка канализации",
-        "Устранение засоров",
-        "Протечка воды",
-        "Замена труб",
-        "Монтаж труб",
-        "Установка смесителя",
-        "Установка унитаза",
-        "Бойлеры",
-        "Сантехник круглосуточно",
-        "Вызов сантехника",
-      ]
+  "Сантехник круглосуточно",
+  "Устранение засоров",
+  "Протечка воды",
+  "Замена труб",
+  "Монтаж труб",
+  "Установка смесителя",
+  "Установка унитаза",
+  "Бойлеры",
+  "Тёплый пол",
+  "Прочистка канализации",
+  "Установка радиаторов",
+  "Установка котла",
+     ]
     : [
-        "Կոյուղու մաքրում",
-        "Խցանումների վերացում",
-        "Ջրի արտահոսքի վերացում",
-        "Խողովակների փոխարինում",
-        "Խողովակների մոնտաժ",
-        "Ծորակի տեղադրում",
-        "Զուգարանակոնքի տեղադրում",
-        "Բոյլերներ",
-        "Սանտեխնիկ 24/7",
-        "Սանտեխնիկի կանչ",
-        "Սանտեխնիկական համալիր աշխատանքներ",
-      ];
+  "Սանտեխնիկ 24/7",
+  "Խցանումների վերացում",
+  "Ջրի արտահոսքի վերացում",
+  "Խողովակների փոխարինում",
+  "Խողովակների մոնտաժ",
+  "Ծորակի տեղադրում",
+  "Զուգարանակոնքի տեղադրում",
+  "Բոյլերներ",
+  "Տաք հատակ",
+  "Կոյուղու մաքրում",
+  "Ռադիատորների տեղադրում",
+  "Կաթսայի տեղադրում",
+];
   const heroBenefits = locale === "ru"
     ? [
         { icon: "call", text: "Оперативная связь и выезд" },
@@ -186,7 +189,7 @@ export function HomePage() {
         title={hs(locale, homeSeoContent.metaTitle)}
         description={hs(locale, homeSeoContent.metaDescription)}
         keywords={hs(locale, homeSeoContent.keywords)}
-        path={`/${locale}/`}
+        path={localePath(locale)}
         image={null}
         imageAlt={locale === "ru" ? "Сантехник в Ереване" : "Սանտեխնիկ Երևանում"}
         structuredData={[
@@ -194,7 +197,6 @@ export function HomePage() {
           createWebSiteSchema(locale),
           createLocalBusinessSchema(locale),
           createHomePageSchema(locale),
-          createFaqSchema(locale, homeFaqSeoContent),
         ].filter((item): item is Record<string, unknown> => Boolean(item))}
       />
 

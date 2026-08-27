@@ -1,13 +1,12 @@
 import {
   brandName,
-  businessPhoneDisplay,
   businessPhoneMachine,
   businessWhatsappUrl,
   siteUrl,
   t,
 } from "@/src/content/site";
-import { absoluteUrl } from "@/src/lib/locale";
-import type { Locale, LocalizedFaqItem, ServiceEntry } from "@/src/types";
+import { absoluteUrl, localePath } from "@/src/lib/locale";
+import type { Locale } from "@/src/types";
 
 type Schema = Record<string, unknown>;
 
@@ -117,6 +116,8 @@ export function createOrganizationSchema(): Schema {
 }
 
 export function createLocalBusinessSchema(locale: Locale): Schema {
+  const homePath = localePath(locale);
+
   return {
     "@context": "https://schema.org",
     "@type": "Plumber",
@@ -157,7 +158,7 @@ export function createLocalBusinessSchema(locale: Locale): Schema {
       priceCurrency: currency,
       availability: "https://schema.org/InStock",
       areaServed: serviceArea,
-      url: absoluteUrl(`/${locale}/`),
+      url: absoluteUrl(homePath),
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -205,11 +206,13 @@ export function createWebSiteSchema(locale: Locale): Schema {
 }
 
 export function createHomePageSchema(locale: Locale): Schema {
+  const homePath = localePath(locale);
+
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${absoluteUrl(`/${locale}/`)}#webpage`,
-    url: absoluteUrl(`/${locale}/`),
+    "@id": `${absoluteUrl(homePath)}#webpage`,
+    url: absoluteUrl(homePath),
     name: locale === "ru" ? "Услуги сантехника в Ереване" : "Սանտեխնիկի ծառայություններ Երևանում",
     description:
       locale === "ru"
@@ -226,42 +229,5 @@ export function createHomePageSchema(locale: Locale): Schema {
       "@type": "ImageObject",
       url: absoluteUrl("/icon-512.png"),
     },
-  };
-}
-
-export function createServiceSchema(locale: Locale, service: ServiceEntry, path: string): Schema {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: t(locale, service.title),
-    name: t(locale, service.title),
-    description: t(locale, service.summary),
-    url: absoluteUrl(path),
-    areaServed: serviceArea,
-    provider: {
-      "@type": "Plumber",
-      "@id": localBusinessId,
-      name: t(locale, brandName),
-      telephone: businessPhoneDisplay,
-    },
-  };
-}
-
-export function createFaqSchema(locale: Locale, faq: LocalizedFaqItem[]): Schema | null {
-  if (faq.length === 0) {
-    return null;
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: t(locale, item.question),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(locale, item.answer),
-      },
-    })),
   };
 }

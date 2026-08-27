@@ -62,19 +62,7 @@ const routes = [
     description: homeSeo.ru.description,
     canonical: "/",
     alternates: [
-      ["ru-AM", "/ru/"],
-      ["hy-AM", "/hy/"],
-      ["x-default", "/"],
-    ],
-  },
-  {
-    path: "/ru",
-    locale: "ru",
-    title: homeSeo.ru.title,
-    description: homeSeo.ru.description,
-    canonical: "/ru/",
-    alternates: [
-      ["ru-AM", "/ru/"],
+      ["ru-AM", "/"],
       ["hy-AM", "/hy/"],
       ["x-default", "/"],
     ],
@@ -86,21 +74,21 @@ const routes = [
     description: homeSeo.hy.description,
     canonical: "/hy/",
     alternates: [
-      ["ru-AM", "/ru/"],
+      ["ru-AM", "/"],
       ["hy-AM", "/hy/"],
       ["x-default", "/"],
     ],
   },
   {
-    path: "/ru/politika-konfidentsialnosti",
+    path: "/politika-konfidentsialnosti",
     locale: "ru",
     title: "Политика конфиденциальности и использования файлов cookie | Сантехник",
     description: "Как сайт Сантехник собирает, обрабатывает и защищает личные данные и использует cookies.",
-    canonical: "/ru/politika-konfidentsialnosti/",
+    canonical: "/politika-konfidentsialnosti/",
     alternates: [
-      ["ru-AM", "/ru/politika-konfidentsialnosti/"],
+      ["ru-AM", "/politika-konfidentsialnosti/"],
       ["hy-AM", "/hy/politika-konfidentsialnosti/"],
-      ["x-default", "/ru/politika-konfidentsialnosti/"],
+      ["x-default", "/politika-konfidentsialnosti/"],
     ],
   },
   {
@@ -111,9 +99,9 @@ const routes = [
       "Ինչպես է Սանտեխնիկ կայքը հավաքում, մշակում և պաշտպանում անձնական տվյալները և օգտագործում cookie ֆայլերը։",
     canonical: "/hy/politika-konfidentsialnosti/",
     alternates: [
-      ["ru-AM", "/ru/politika-konfidentsialnosti/"],
+      ["ru-AM", "/politika-konfidentsialnosti/"],
       ["hy-AM", "/hy/politika-konfidentsialnosti/"],
-      ["x-default", "/ru/politika-konfidentsialnosti/"],
+      ["x-default", "/politika-konfidentsialnosti/"],
     ],
   },
 ];

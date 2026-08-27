@@ -1,8 +1,8 @@
-import { createBrowserRouter, Navigate, useLocation, useParams } from "react-router-dom";
+import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 
 import { commonSlugs } from "@/src/content/site";
 import { LocaleLayout } from "@/src/layout/LocaleLayout";
-import { detectPreferredLocale } from "@/src/lib/locale";
+import { localePath, normalizeLocale } from "@/src/lib/locale";
 import { HomePage } from "@/src/pages/HomePage";
 import { PrivacyPage } from "@/src/pages/PrivacyPage";
 
@@ -10,22 +10,25 @@ const basename = import.meta.env.BASE_URL === "/" ? "/" : import.meta.env.BASE_U
 
 function LocalizedHomeRedirect() {
   const params = useParams();
-  const locale = params.locale ?? detectPreferredLocale();
+  const locale = normalizeLocale(params.locale);
 
-  return <Navigate to={`/${locale}/`} replace />;
-}
-
-function PreferredLocaleRedirect() {
-  const location = useLocation();
-  const locale = detectPreferredLocale();
-
-  return <Navigate to={`/${locale}/${location.search}${location.hash}`} replace />;
+  return <Navigate to={localePath(locale)} replace />;
 }
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <PreferredLocaleRedirect />,
+    element: <LocaleLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: commonSlugs.privacy,
+        element: <PrivacyPage />,
+      },
+    ],
   },
   {
     path: "/:locale",
@@ -47,6 +50,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <PreferredLocaleRedirect />,
+    element: <Navigate to="/" replace />,
   },
 ], { basename });

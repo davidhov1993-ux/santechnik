@@ -4,7 +4,8 @@ import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
 import { CookieConsent } from "@/src/components/CookieConsent";
 import { SiteFooter } from "@/src/components/SiteFooter";
 import { SiteHeader } from "@/src/components/SiteHeader";
-import { detectPreferredLocale, isLocale } from "@/src/lib/locale";
+import { defaultLocale } from "@/src/content/site";
+import { isLocale, localePath } from "@/src/lib/locale";
 
 const localeScrollStorageKey = "santekhnic_locale_switch_scroll_y";
 const localeScrollMaxAgeMs = 15_000;
@@ -104,16 +105,19 @@ export function LocaleLayout() {
     return () => window.clearTimeout(timeout);
   }, [location.pathname, location.hash, location.key]);
 
-  if (!isLocale(params.locale)) {
-    const locale = detectPreferredLocale();
+  if (params.locale === defaultLocale) {
     const segments = location.pathname.split("/").filter(Boolean).slice(1);
-    const suffix = segments.length > 0 ? `${segments.join("/")}/` : "";
-    const nextPath = `/${locale}/${suffix}${location.search}${location.hash}`;
+    const suffix = segments.length > 0 ? segments.join("/") : "";
+    const nextPath = `${localePath(defaultLocale, suffix)}${location.search}${location.hash}`;
 
     return <Navigate to={nextPath} replace />;
   }
 
-  const locale = params.locale;
+  if (params.locale && !isLocale(params.locale)) {
+    return <Navigate to={`/${location.search}${location.hash}`} replace />;
+  }
+
+  const locale = isLocale(params.locale) ? params.locale : defaultLocale;
 
   return (
     <div className="page-shell">

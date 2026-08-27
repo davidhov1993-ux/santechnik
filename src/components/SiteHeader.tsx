@@ -7,7 +7,7 @@ import {
   businessPhoneMachine,
   t,
 } from "@/src/content/site";
-import { rewriteLocaleInPath, saveLocalePreference } from "@/src/lib/locale";
+import { localePath, rewriteLocaleInPath } from "@/src/lib/locale";
 import type { Locale } from "@/src/types";
 
 const localeScrollStorageKey = "santekhnic_locale_switch_scroll_y";
@@ -23,11 +23,8 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     locale === "ru" ? "Переключить сайт на армянский" : "Փոխել կայքը ռուսերեն";
   const callLabel = locale === "ru" ? "Позвонить" : "Զանգահարել";
 
-  const handleLocaleClick = (event: MouseEvent<HTMLAnchorElement>, selectedLocale: Locale) => {
-    saveLocalePreference(selectedLocale);
-
+  const handleLocaleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (
-      selectedLocale === locale ||
       event.defaultPrevented ||
       event.button !== 0 ||
       event.metaKey ||
@@ -55,7 +52,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <header className="site-header">
       <div className="container header-main">
         <div className="header-bar">
-          <Link to={`/${locale}/`} className="brand-mark brand-mark--image" aria-label={brandLabel}>
+          <Link to={localePath(locale)} className="brand-mark brand-mark--image" aria-label={brandLabel}>
             <img
               className="brand-mark__logo"
               src="/images/santekhnic-logo-header.png"
@@ -72,7 +69,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <div className="locale-switch__items">
                 <NavLink
                   to={localeSwitchTo}
-                  onClick={(event) => handleLocaleClick(event, nextLocale)}
+                  onClick={handleLocaleClick}
                   className="locale-link locale-link--single"
                   aria-label={localeSwitchAria}
                 >

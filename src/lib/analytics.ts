@@ -49,10 +49,6 @@ export function getGoogleAnalyticsId() {
   return googleAnalyticsId;
 }
 
-export function getGoogleConsentMode() {
-  return consentMode;
-}
-
 export function createCookieConsentChoice(
   preferences: Pick<CookieConsentChoice, "analytics" | "marketing" | "preferences">,
 ): CookieConsentChoice {
@@ -98,16 +94,6 @@ export function saveCookieConsent(choice: CookieConsentChoice) {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
   } catch {
     // Consent still updates for the current page even if storage is blocked.
-  }
-}
-
-export function clearCookieConsent() {
-  if (typeof window === "undefined") return;
-
-  try {
-    window.localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    // Ignore storage errors in private or locked-down browsing modes.
   }
 }
 

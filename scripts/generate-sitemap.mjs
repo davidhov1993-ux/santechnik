@@ -34,7 +34,9 @@ const siteUrl = readSiteUrl();
 const lastmod = new Date().toISOString().slice(0, 10);
 
 function routePath(locale, slug) {
-  return slug ? `/${locale}/${slug}/` : `/${locale}/`;
+  const prefix = locale === "ru" ? "" : `/${locale}`;
+
+  return slug ? `${prefix}/${slug}/` : `${prefix || ""}/`;
 }
 
 function routeUrl(locale, slug) {
@@ -53,7 +55,7 @@ function alternateLinks(slug, localized = true) {
 
   links.push({
     hreflang: "x-default",
-    href: slug ? routeUrl("ru", slug) : `${siteUrl}/`,
+    href: routeUrl("ru", slug),
   });
 
   return links;
