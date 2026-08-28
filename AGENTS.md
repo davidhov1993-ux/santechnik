@@ -14,7 +14,7 @@ There is no test runner, ESLint, or Prettier configured. Type errors from `tsc -
 
 ## Environment
 
-`VITE_SITE_URL` is read both at runtime (for canonical URLs / OG / hreflang in `src/lib/seo.ts` and `src/components/Seo.tsx`) and at build time by `scripts/generate-sitemap.mjs` / `scripts/enhance-static-seo.mjs`. Without it, the project falls back to the production domain `https://santekhnic-yerevan.am`. Keep it set to the final HTTPS domain before building for Cloudflare/custom-domain production.
+`VITE_SITE_URL` is read both at runtime (for canonical URLs / OG / hreflang in `src/lib/seo.ts` and `src/components/Seo.tsx`) and at build time by `scripts/generate-sitemap.mjs` / `scripts/enhance-static-seo.mjs`. Without it, the project falls back to the production domain `https://santechnik-yerevan.am`. Keep it set to the final HTTPS domain before building for Cloudflare/custom-domain production.
 
 `VITE_GA_MEASUREMENT_ID` enables Google Analytics 4 through the consent manager in `src/components/CookieConsent.tsx` and `src/lib/analytics.ts`. `VITE_GA_CONSENT_MODE` defaults to `advanced`, which loads gtag with Consent Mode v2 defaults set to denied; set it to `basic` if no Google request should be made before consent.
 

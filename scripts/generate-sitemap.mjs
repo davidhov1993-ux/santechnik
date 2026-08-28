@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 
 const cwd = process.cwd();
 const envPaths = [".env.local", ".env"].map((file) => resolve(cwd, file));
-const defaultSiteUrl = "https://santekhnic-yerevan.am";
+const defaultSiteUrl = "https://santechnik-yerevan.am";
 const locales = {
   ru: "ru-AM",
   hy: "hy-AM",

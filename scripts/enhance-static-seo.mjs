@@ -4,7 +4,7 @@ import { dirname, resolve } from "node:path";
 const cwd = process.cwd();
 const distDir = resolve(cwd, "dist");
 const indexPath = resolve(distDir, "index.html");
-const defaultSiteUrl = "https://santekhnic-yerevan.am";
+const defaultSiteUrl = "https://santechnik-yerevan.am";
 const siteUrl = readSiteUrl();
 const imageByLocale = {
   ru: "/icon-512.png",

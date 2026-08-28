@@ -4,7 +4,7 @@ const MAX_FILES = 8;
 const MAX_TOTAL_ATTACHMENT_BYTES = 3 * 1024 * 1024;
 const MAX_MESSAGE_LENGTH = 4000;
 const MAX_FIELD_LENGTH = 160;
-const DEFAULT_SMTP_EHLO_DOMAIN = "santekhnic-yerevan.am";
+const DEFAULT_SMTP_EHLO_DOMAIN = "santechnik-yerevan.am";
 const GMAIL_SMTP_HOST = "smtp.gmail.com";
 const GMAIL_SMTP_PORT = 587;
 

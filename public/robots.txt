@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://santekhnic-yerevan.am/sitemap.xml
+Sitemap: https://santechnik-yerevan.am/sitemap.xml

@@ -1,6 +1,6 @@
 # Деплой сайта, домена и почты
 
-Ниже базовая схема для `santekhnic-yerevan.am`.
+Ниже базовая схема для `santechnik-yerevan.am`.
 
 ## 1. Подключить домен к Cloudflare
 
@@ -15,14 +15,14 @@
 3. Build command: `npm run build`
 4. Build output directory: `dist`
 5. После первого деплоя добавьте custom domain:
-   - `santekhnic-yerevan.am`
-   - `www.santekhnic-yerevan.am` при необходимости
+   - `santechnik-yerevan.am`
+   - `www.santechnik-yerevan.am` при необходимости
 
 ## 3. Настроить входящую почту на домене
 
 Рекомендуемый публичный адрес на сайте:
 
-- `info@santekhnic-yerevan.am`
+- `info@santechnik-yerevan.am`
 
 В `Email Routing`:
 
@@ -55,7 +55,7 @@
 - `GMAIL_SMTP_USER`: Gmail-ящик, от имени которого отправляются письма
 - `GMAIL_APP_PASSWORD`: Gmail App Password
 - `CONTACT_NOTIFICATION_TO`: ящик, куда приходят заявки
-- `SMTP_EHLO_DOMAIN`: `santekhnic-yerevan.am` опционально
+- `SMTP_EHLO_DOMAIN`: `santechnik-yerevan.am` опционально
 
 После изменения secrets нужен новый production redeploy.
 
@@ -63,8 +63,8 @@
 
 В Pages variables:
 
-- `VITE_SITE_URL=https://santekhnic-yerevan.am`
-- `VITE_CONTACT_EMAIL=info@santekhnic-yerevan.am`
+- `VITE_SITE_URL=https://santechnik-yerevan.am`
+- `VITE_CONTACT_EMAIL=info@santechnik-yerevan.am`
 - `VITE_GA_MEASUREMENT_ID=...`
 - `VITE_GA_CONSENT_MODE=advanced`
 

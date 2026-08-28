@@ -7,7 +7,7 @@ import type {
 
 export const supportedLocales: Locale[] = ["ru", "hy"];
 
-export const fallbackSiteUrl = "https://santekhnic-yerevan.am";
+export const fallbackSiteUrl = "https://santechnik-yerevan.am";
 const configuredSiteUrl = (import.meta.env.VITE_SITE_URL as string | undefined)?.trim();
 export const siteUrl = configuredSiteUrl ? configuredSiteUrl.replace(/\/$/, "") : fallbackSiteUrl;
 

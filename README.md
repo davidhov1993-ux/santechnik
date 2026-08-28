@@ -17,8 +17,8 @@
 Для корректных canonical URL и Open Graph укажите домен сайта:
 
 ```bash
-VITE_SITE_URL=https://santekhnic-yerevan.am
-VITE_CONTACT_EMAIL=info@santekhnic-yerevan.am
+VITE_SITE_URL=https://santechnik-yerevan.am
+VITE_CONTACT_EMAIL=info@santechnik-yerevan.am
 VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 VITE_GA_CONSENT_MODE=advanced
 ```
