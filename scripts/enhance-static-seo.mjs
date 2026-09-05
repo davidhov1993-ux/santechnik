@@ -10,8 +10,8 @@ const imageByLocale = {
   ru: "/icon-512.png",
   hy: "/icon-512.png",
 };
-const phone = "+37499586469";
-const whatsappUrl = "https://wa.me/37499586469";
+const phone = "+37433221181";
+const whatsappUrl = "https://wa.me/37477221181";
 
 const homeSeo = {
   ru: {

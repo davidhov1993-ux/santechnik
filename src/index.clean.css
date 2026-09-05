@@ -7608,6 +7608,132 @@ body:has(.ru-desktop-home) .site-footer__bar,
 }
 
 @media (min-width: 701px) {
+  .hy-desktop-home .ru-desktop-home__workbench-intro .ru-desktop-home__title {
+    max-width: min(100%, 28ch);
+    white-space: normal;
+  }
+
+  .hy-desktop-home .ru-desktop-home__section--consult {
+    padding: clamp(8px, 1.2vw, 18px) 0 clamp(48px, 4.4vw, 78px);
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(460px, 540px);
+    align-items: center;
+    gap: clamp(20px, 2.7vw, 48px);
+    width: min(calc(100vw - var(--ru-page-gutter) - var(--ru-page-gutter)), 1320px);
+    margin-right: auto;
+    margin-left: auto;
+    padding: clamp(16px, 1.55vw, 24px);
+    overflow: hidden;
+    border: 1px solid rgba(0, 174, 239, 0.22);
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, rgba(0, 109, 255, 0.08) 0 4px, transparent 4px),
+      linear-gradient(135deg, #ffffff 0%, #f6fbff 100%);
+    box-shadow: 0 18px 42px rgba(7, 26, 35, 0.07);
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__meta {
+    display: block;
+    min-height: auto;
+    margin: 0;
+    padding: 0 0 0 clamp(16px, 1vw, 22px);
+    color: #244858;
+    font-size: clamp(1.05rem, 0.92vw, 1.22rem);
+    font-weight: 850;
+    line-height: 1.45;
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__service-phone {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-areas:
+      "icon label"
+      "icon number";
+    column-gap: 16px;
+    row-gap: 5px;
+    align-items: center;
+    justify-self: end;
+    justify-items: start;
+    width: min(100%, 540px);
+    min-height: 86px;
+    margin: 0;
+    padding: clamp(16px, 1.25vw, 22px) clamp(18px, 1.55vw, 28px);
+    border: 0;
+    border-radius: 8px;
+    background: #006dff;
+    color: #ffffff;
+    text-align: left;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(0, 109, 255, 0.22);
+    transition:
+      background-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__service-phone:hover {
+    background: #005fe0;
+    box-shadow: 0 18px 42px rgba(0, 109, 255, 0.28);
+    transform: translateY(-1px);
+  }
+
+  .hy-desktop-home .ru-desktop-home__service-phone-icon {
+    grid-area: icon;
+    box-sizing: content-box;
+    width: 26px;
+    height: 26px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__service-phone span {
+    grid-area: label;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(0.82rem, 0.7vw, 0.95rem);
+    font-weight: 850;
+    line-height: 1.24;
+    text-align: left;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__service-phone strong {
+    grid-area: number;
+    color: #ffffff;
+    font-size: clamp(1.9rem, 1.65vw, 2.45rem);
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 899px) {
+  .hy-desktop-home .ru-desktop-home__consult-strip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    width: min(100%, 760px);
+    padding: 16px;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__meta {
+    padding: 4px 8px 0;
+    text-align: center;
+  }
+
+  .hy-desktop-home .ru-desktop-home__consult-strip .ru-desktop-home__service-phone {
+    justify-self: stretch;
+    width: 100%;
+  }
+}
+
+@media (min-width: 701px) {
   .home-brand-hero--hy {
     --ru-page-gutter: clamp(52px, 7vw, 150px);
     --ru-desktop-container: min(calc(100vw - var(--ru-page-gutter) - var(--ru-page-gutter)), 2200px);

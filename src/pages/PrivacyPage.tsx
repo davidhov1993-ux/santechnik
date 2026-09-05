@@ -35,12 +35,12 @@ interface PrivacyCopy {
   backHome: string;
 }
 
-const phone = "+420 603 319 872";
-const phoneHref = "tel:+420603319872";
+const phone = "+374 33 221 181";
+const phoneHref = "tel:+37433221181";
 const ownerEmail = "david.hov.1993@gmail.com";
 const ownerEmailHref = "mailto:david.hov.1993@gmail.com";
-const engineerPhone = "+374 91 586 469";
-const engineerPhoneHref = "tel:+37491586469";
+const engineerPhone = "+374 33 221 181";
+const engineerPhoneHref = "tel:+37433221181";
 
 const privacyCopy: Record<Locale, PrivacyCopy> = {
   ru: {
@@ -124,7 +124,7 @@ const privacyCopy: Record<Locale, PrivacyCopy> = {
       },
       {
         role: "Главный инженер",
-        name: "Hakob Hovhannisyan",
+        name: "Ваган Оганнисян",
         location: "Ереван, Армения",
         items: [{ value: engineerPhone, href: engineerPhoneHref }],
       },
@@ -212,7 +212,7 @@ const privacyCopy: Record<Locale, PrivacyCopy> = {
       },
       {
         role: "Գլխավոր ինժեներ",
-        name: "Հակոբ Հովհաննիսյան",
+        name: "Վահան Հովհաննիսյան",
         location: "Երևան, Հայաստան",
         items: [{ value: engineerPhone, href: engineerPhoneHref }],
       },
